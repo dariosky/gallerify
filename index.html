@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallerify example</title>
+
+	<!--
+		I include an example stylesheet
+		we define transition type and style there
+	-->
+	<link rel="stylesheet" href="gallerify-example.css"/>
+</head>
+<body>
+<!-- A first example: a fullpage cover background -->
+<div id="background">
+	<div class="slide" data-background="http://420placehold.it/starwars/100-100"></div>
+	<div class="slide" data-background="http://420placehold.it/starwars/200-200"></div>
+	<div class="slide" data-background="http://420placehold.it/starwars/300-300"></div>
+</div>
+
+<!-- Then a block with slides that advance using keyboard shortcut-->
+<!-- we set data-translatex-space to make it horizontally scrollable-->
+<div id="controllable" data-translatex-space="true">
+	<!-- we put here a slide control to go left -->
+	<span class="slidecontrol left">&lang;</span>
+
+	<div class="slide">This is slide 1</div>
+	<div class="slide">This is slide 2</div>
+	<div class="slide">This is slide 3</div>
+	<div class="slide">ok, you should have learned the meme</div>
+
+	<!-- a slide control to go right -->
+	<span class="slidecontrol right">&rang;</span>
+</div>
+
+<!-- jQuery is required-->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- Load gallerify -->
+<script type="text/javascript" src="gallerify.js"></script>
+<script type="text/javascript">
+	// And then we can activate it
+	$(function () {
+		// the first auto-advance, with shuffled images
+		$('#background').gallerify({shuffle: true});
+
+		// the second will not auto-advance, and is controllable
+		$('#controllable').gallerify({timeout: 0, keyNavigation: true});
+	});
+</script>
+</body>
+</html>
+
