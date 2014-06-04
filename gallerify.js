@@ -90,7 +90,6 @@
 		window.slides = this;
 
 		var goto = function (index, rightWard) {
-//			console.log("activating", index)
 			var old_index = current_index;
 			if (index == old_index) return;
 			if (deltaX) {
@@ -112,7 +111,8 @@
 			}
 
 			current_index = index;
-
+			if (typeof settings.onSlideStart !== "undefined")
+				settings.onSlideStart($slides[old_index], $($slides[current_index]));
 			$($slides[old_index]).removeClass('active');
 			$($slides[current_index]).addClass('active');
 			if (deltaX) {
